@@ -14,42 +14,41 @@ fp.types: Paquete que contiene los tipos del proyecto.
 fp.test: Paquete que contiene las clases de test del proyecto.
 fp.utils: Paquete que contiene las clases de utilidad.
 /data: Contiene el dataset del proyecto.
-chess.csv: Archivo csv que contiene datos de diferentes partidas de ajedrez.
+formula_e_race_reesults3.csv: Archivo csv que contiene datos de diferentes partidas de ajedrez.
 Estructura del dataset
-El dataset original Chess Game Dataset se puede obtener de la URL https://www.kaggle.com/datasnaek/chess. Originalmente tiene 16 columnas y cada fila contiene datos sobre una partida de ajedrez jugada en la plataforma lichess.com. El dataset usado en este proyecto tiene 11 columna, 9 se han tomado del dataset original, y dos, la fecha y la duración de las partidas, se han generado de forma aleatoria. A continuación se describen las 11 columnas del dataset:
+El dataset original Formula_e_raceresults se puede obtener de la URL https://www.kaggle.com/datasets/mlandry/formula-e-championship. Originalmente tiene 17 columnas y cada fila contiene datos sobre una carrera de fórmula e. El dataset usado en este proyecto tiene 14 columnas. A continuación se describen las 14 columnas del dataset:
 
-rated: de tipo booleano, indica si las partidas han sido calificadas o no, es decir si son partidas amistosas o de tipo clasificatorio.
-victory_status: de tipo cadena, indica el tipo de victoria. Puede tomar los valores: outoftime, resign, mate or draw.
-winner: de tipo cadena, indica el resultado de la partida. Puede tomar los valores: white, black o draw, para indicar si ganan las blancas, las negras, o hay tablas.
-white_id: de tipo cadena, contiene el identificador del jugador de blancas.
-white_rating: de tipo entero, tiene el valor ELO del jugador de blancas. El valor ELO es un número que se usa en lichess.com para hacer un ranking de los jugadores.
-black_id: de tipo cadena, contiene el identificador del jugador de negras.
-black_rating: de tipo entero, tiene el valor ELO del jugador de negras.
-moves: de tipo cadena, contiene una secuencia con los movimientos de la partida. Los movimientos están separados por espacios en blanco. Por ejemplo, d4 d5 c4 c6 cxd5 e6 dxe6 fxe6 Nf3 Bb4+ Nc3 Ba5 Bf4.
-opening_name: de tipo cadena, indica la salida y la defensa de la partida. Esto no se corresponde con el primer o segundo movimiento, sino que son las salidas y sus distintas variantes, por ejemplo, Queen's Pawn Game: Mason Attack.
-fecha: de tipo fecha. Indica la fecha en la que se jugó la partida.
-duracion: de tipo entero. Indica la duración en minutos de la partida.
+season: de tipo integer, muestra el numero de la temporada, es decir, si es la número uno, dos etc.
+race_num : de tipo integer, muestra el numero de la carrera en la temporada.
+race_name : de tipo String, muestra la fecha y el nombre del circuito en que se corre.
+race_date: de tipo LocalDate, fecha en que tiene lugar la carrera.
+driver: de tipo String, nombre del piloto.
+car: de tipo Integer, número del coche.
+team: de tipo String, equipo del piloto que corre.
+team_group: de tipo String, grupo de equipos al que pertence el equipo del piloto que corre
+rank: de tipo integer, posición en la que acabó el piloto.
+grid: de tipo integer, posición de salida en parrilla del piloto.
+laps: de tipo Long, número de vueltas de la carrera
+duration: de tipo duration, tiempo que tardó el piloto en acabar la carrera.
+retired: de tipo boolean, es verdadero cuando el piloto se retiró de la prueba.
+ptsl: de tipo list, lista que contiene los puntos de rank, de pole y bonus.
+points: de tipo Integer, suma de los miembros de la lista anterior.
+
 Tipos implementados
 Los tipos que se han implementado en el proyecto son los siguientes:
 
-Tipo Base - Partida
-Representa una partida de ajedrez concreta. Propiedades:
+Tipo Base - Race
+Representa una carrera concreta. Propiedades:
 
-clasificatoria, de tipo Boolean, consultable. Indica si las partidas han sido calificadas o no, es decir si son partidas amistosas o de tipo clasificatorio.
-tipoVictoria, de tipo TipoVictoria, consultable. Indica el tipo de victoria. Puede tomar los valores OUTOFTIME, RESIGN, MATE, DRAW.
-resultado, de tipo Resultado, consultable. Indica el resultado de la partida. Puede tomar los valores WHITE, BLACK, DRAW.
-jugadorBlancas, de tipo String, consultable. Contiene el identificador del jugador de blancas.
-jugadorNegras, de tipo String, consultable. Contiene el identificador del jugador de negras.
-ratingBlancas, de tipo Integer, consultable. Contiene el rating del jugador de blancas.
-ratingNegras, de tipo Integer, consultable. Contiene el rating del jugador de negras.
-movimientos, de tipo List<String>, consultable. Lista de movimientos de la partida.
-apertura, de tipo String, consultable. Tipo de apertura usado en la partida.
-apertura, de tipo String, consultable. Tipo de apertura usado en la partida.
-movimientoApertura, de tipo String, consultable. Es el primer movimiento de la partida y, por lo tanto, se obtiene a partir del primer elemento de la lista de movimientos.
-numMovimientos, de tipo Integer, consultable. Número de movimientos que se han realizado en la partida. Se calcula a partir del número de elementos de la lista de movimientos.
-jugadorGanador, de tipo String, consultable. Contiene el id del jugador que gana la partida, o null, si la partida ha quedado en tablas.
-ratingGanador, de tipo Integer, consultable. Contiene el rating del jugador que gana la partida, o null, si la partida ha quedado en tablas.
-diferenciaRatings, de tipo Integer, consultable. Contiene la diferencia de ratings entre los dos jugadores de la partida (en valor absoluto).
+season, de tipo Season, consultable. 
+race_num, de tipo Integer, consultable.
+race_name, de tipo String, consultable.
+race_date, de tipo LocalDate, consultable.
+driver, de tipo String, consultable.
+car, de tipo Integer, consultable.
+team, de tipo String, consultable.
+team_group, de tipo String, consultable.
+
 Constructores:
 
 C1: Tiene un parámetro por cada propiedad básica del tipo.
