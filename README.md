@@ -3,68 +3,68 @@ java-term-project-TachoPablo2 created by GitHub Classroom
 
 
 
-Proyecto del Segundo Cuatrimestre Fundamentos de Programación (Curso 2021/22)
+Project of the Second term
 Autor/a: Pablo Romero Gómez, uvus: GFQ0792
 
-Este proyecto es una adaptación del proyecto presentado por el estudiante Pablo Diego Acosta, en el curso 2021/22.
+This project is an adaptation of the one from  the student Pablo Diego Acosta, on the 
 
-Estructura de las carpetas del proyecto
-/src: Directorio con el código fuente.
-fp.types: Paquete que contiene los tipos del proyecto.
-fp.test: Paquete que contiene las clases de test del proyecto.
-fp.utils: Paquete que contiene las clases de utilidad.
-/data: Contiene el dataset del proyecto.
-formula_e_race_reesults3.csv: Archivo csv que contiene datos de diferentes partidas de ajedrez.
+Este proyecto es una adaptación del proyecto presentado por el estudiante Pablo Diego Acosta,on the course 2021/22.
+
+Structure of the project
+/src: Directory with the source code.
+fp.types:Package which contains the types of the project.
+fp.test: Package that contains the test classes of the project.
+fp.utils: Package that contains the utility classes.
+/data: Contains the dataset of the project.
+formula_e_race_reesults4.csv: Archivo csv que contiene datos de diferentes partidas de ajedrez.
 Estructura del dataset
-El dataset original Formula_e_raceresults se puede obtener de la URL https://www.kaggle.com/datasets/mlandry/formula-e-championship. Originalmente tiene 17 columnas y cada fila contiene datos sobre una carrera de fórmula e. El dataset usado en este proyecto tiene 14 columnas. A continuación se describen las 14 columnas del dataset:
+The original dataset Formula_e_raceresultscan be obtained from the URL https://www.kaggle.com/datasets/mlandry/formula-e-championship. Originally it had 17 columns y each row contains data about one race of Formula E. The dataset used has 13 columns. Now we will describe the 13 columns of the dataset:
 
-season: de tipo integer, muestra el numero de la temporada, es decir, si es la número uno, dos etc.
-race_num : de tipo integer, muestra el numero de la carrera en la temporada.
-race_name : de tipo String, muestra la fecha y el nombre del circuito en que se corre.
-race_date: de tipo LocalDate, fecha en que tiene lugar la carrera.
-driver: de tipo String, nombre del piloto.
-car: de tipo Integer, número del coche.
-team: de tipo String, equipo del piloto que corre.
-team_group: de tipo String, grupo de equipos al que pertence el equipo del piloto que corre
-rank: de tipo integer, posición en la que acabó el piloto.
-grid: de tipo integer, posición de salida en parrilla del piloto.
-laps: de tipo Long, número de vueltas de la carrera
-duration: de tipo duration, tiempo que tardó el piloto en acabar la carrera.
-retired: de tipo boolean, es verdadero cuando el piloto se retiró de la prueba.
-ptsl: de tipo list, lista que contiene los puntos de rank, de pole y bonus.
-points: de tipo Integer, suma de los miembros de la lista anterior.
+season: of type integer, shows the number of the season, that is, if it is number one, two, etc.
+race_num : of type integer, shows the number of the race in the season.
+race_name : of type String, it shows the date and the name of the circuit in which it is raced.
+race_date: of type LocalDate, date on which the race takes place.
+driver: of type String, name of the driver.
+car: of type Integer, number of the car.
+team: of type String, the team of the pilot who is running.
+team_group: of type String, group of teams to which the team of the pilot who is racing belongs
+rank: of type integer, position in which the pilot finished.
+grid: of type integer, starting position on the driver's grid.
+laps: Integer type, number of laps in the race
+retired: of type boolean, it is true when the pilot retired from the test.
+ptsl: of type list, list containing the rank, pole and bonus points.
 
-Tipos implementados
-Los tipos que se han implementado en el proyecto son los siguientes:
 
-Tipo Base - Race
-Representa una carrera concreta. Propiedades:
+Implemented types
+The types that have been implemented in the project are the following:
 
-season, de tipo Season, consultable. 
-race_num, de tipo Integer, consultable.
-race_name, de tipo String, consultable.
-race_date, de tipo LocalDate, consultable.
-driver, de tipo String, consultable.
-car, de tipo Integer, consultable.
-team, de tipo String, consultable.
-team_group, de tipo enumerado, consultable.
-rank, de tipo Integer, consultable.
-grid, de tipo Integer, consultable.
-laps, de tipo Long,, consultable.
-duration, de tipo Duration, consultable.
-retired, de tipo Boolean, consultable.
-ptsl, de tipo list, consultable.
-points, de tipo Integer, consultable.
+Base Type - Race
+It represents a specific race. Properties:
 
-Constructores:
+season, of type Season, queryable. (is the auxiliary type)
+race_num, of type Integer, queryable.
+race_name, of type String, queryable.
+race_date, of type LocalDate, queryable.
+driver, of type String, queryable.
+car, of type Integer, queryable.
+team, of type String, queryable.
+team_group, of type enumerated, queryable.
+rank, of type Integer, queryable.
+grid, of type Integer, queryable.
+laps, of type Long,, queryable.
+duration, of type Duration, queryable.
+retired, of type Boolean, queryable.
+ptsl, of type list, queryable.
+points, of type Integer, queryable
 
-C1: Tiene un parámetro por cada propiedad básica del tipo.
-C2: Crea un objeto de tipo Race a partir de los siguientes parámetros: season, race_num, race_name, race_date, driver, team_group, team, rank, laps, duration, retired, ptsl 
-Restricciones:
+Constructors:
 
-R1: El rango debe ser positivo mayor que cero.
-R2: La duración debe ser positiva.
+C1: It has a parameter for each basic property of the type.
+C2: Create an object of type Race from the following parameters: season, race_num, race_name, race_date, driver, team_group, team, rank, laps,  retired, ptsl
+restrictions:
 
-Criterio de ordenación: compara primero la fecha de la carrera y luego la posición en la que acaba el piloto.
+R1: The range must be positive greater than zero.
+R2: The number of laps has to be positive
 
+Order criteria: first compares the date of the race and then the position in which the driver finishes.
 
