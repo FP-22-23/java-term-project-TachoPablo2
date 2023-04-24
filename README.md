@@ -68,3 +68,16 @@ R2: The number of laps has to be positive
 
 Order criteria: first compares the date of the race and then the position in which the driver finishes.
 
+Type RaceFactory:
+does the conversion from the strings of the csv to the corresponding datatype of each field.
+
+Type Races:
+has the property races, which is a list of type Race.
+It has two constructors, one from an empty list and one with a stream.
+
+Type Group:
+enumerated type with all the team groups.
+
+Type Season:
+record which converts an Integer into this new type. (is the auxiliary type).
+
