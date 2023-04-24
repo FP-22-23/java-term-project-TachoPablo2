@@ -69,15 +69,16 @@ R2: The number of laps has to be positive
 Order criteria: first compares the date of the race and then the position in which the driver finishes.
 
 Type RaceFactory:
-does the conversion from the strings of the csv to the corresponding datatype of each field.
+does the conversion from the strings of the csv to the corresponding datatype of each field. Has two methods: one for reading the lines of the file and another for parsing those lines into the corresponding datatypes.
 
 Type Races:
 has the property races, which is a list of type Race.
 It has two constructors, one from an empty list and one with a stream.
-
+It has the following methods, one to get the size, the hashcode and equals; the toString method, one to get all the items, one to add an item, another to add a collection of items, another to remove an item, another to check if a driver has raced in Formula E, another to get the number of victories of the driver passed as parameter, another to filter the drivers by grid position, another which returns a map with keys = to the number of victories and values a list of drivers, and the last one returns a map with keys = drivers and values = number of races in which the driver has participated.
 Type Group:
 enumerated type with all the team groups.
 
 Type Season:
 record which converts an Integer into this new type. (is the auxiliary type).
+Has a method to get the short format.
 
