@@ -52,10 +52,8 @@ team_group, of type enumerated, queryable.
 rank, of type Integer, queryable.
 grid, of type Integer, queryable.
 laps, of type Long,, queryable.
-duration, of type Duration, queryable.
 retired, of type Boolean, queryable.
 ptsl, of type list, queryable.
-points, of type Integer, queryable
 
 Constructors:
 
@@ -72,9 +70,24 @@ Type RaceFactory:
 does the conversion from the strings of the csv to the corresponding datatype of each field. Has two methods: one for reading the lines of the file and another for parsing those lines into the corresponding datatypes.
 
 Type Races:
+
 has the property races, which is a list of type Race.
-It has two constructors, one from an empty list and one with a stream.
-It has the following methods, one to get the size, the hashcode and equals; the toString method, one to get all the items, one to add an item, another to add a collection of items, another to remove an item, another to check if a driver has raced in Formula E, another to get the number of victories of the driver passed as parameter, another to filter the drivers by grid position, another which returns a map with keys = to the number of victories and values a list of drivers, and the last one returns a map with keys = drivers and values = number of races in which the driver has participated.
+It had the following methods in delivery 2: two constructors, one from an empty list and one with a collection; one to get the size, the hashcode and equals; the toString method, one to get all the items, one to add an item, another to add a collection of items, another to remove an item, another to check if a driver has raced in Formula E, another to get the number of victories of the driver passed as parameter, another to filter the drivers by grid position, another which returns a map with keys = to the number of victories and values a list of drivers, and the last one returns a map with keys = drivers and values = number of races in which the driver has participated.
+
+Now in delivery 3, we have some updates: 
+We have a new  constructor from a stream and some methods have been changed to streams and some created:
+- Boolean existanceofDriver(String driver)  which checks if the driver has raced in Formula E (now done with streams).
+- Integer numberVictoriesDriver(String driver)  which gets the number of wins of the driver passed as parameter (now done with streams).
+- Set<String> getDriversByGrid(Integer n) which returns a Set with the drivers who have started from the position passed as parameter (now done with streams).
+- Integer bestRankDriver(String driver)  which returns the best position finish of the driver passed as parameter.
+- List<Integer> getDriverFinishes(String name) which returns a list with the finishes of the driver passed as parameter.
+-  Map <String, Long> getNumberRacesByDriver() which returns a map with keys of type string and values of type long. The keys are the drivers and the values are the number of races disputed by the driver in the key (now done with streams)
+- Map <String, Integer> maxPositionByDriver() which returns a map with the driver and its best position finish
+- Map <String, String> winnerByRace() which returns a map which keys are the races and values are the driver who won the race in the key.
+- SortedMap<String, List<String>> topNDriversByRaceSeasonSorted2(Integer n, Season season) which returns a SortedMap whose keys are the races of the season passed as parameter and whose values are the top n drivers in the race of the key. It uses an auxiliary function to calculate the top n drivers of the list.
+- Map.Entry<String, Long> driverMostWins()  which returns the Map.Entry of the driver who has won most races. The key is the driver and the value the number of victories
+	
+
 Type Group:
 enumerated type with all the team groups.
 
