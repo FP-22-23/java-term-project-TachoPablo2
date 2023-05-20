@@ -53,7 +53,7 @@ public class Race implements Comparable<Race> {
 		Checkers.check("Wrong value for laps", laps >= 0);
 	}
 	
-	//segundo constructor
+	//second constructor
 	
 	public Race(Season season, Integer race_num, String race_name, LocalDate race_date, String driver,Group team_group,
 			String team,  Integer rank, Integer laps, Boolean retired,
